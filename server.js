@@ -80,14 +80,13 @@ app.delete('/product/:id', async(req, res) =>{
     }
 })
 
-//Delete all
 // Delete all products
 app.delete('/product', async (req, res) => {
     try {
-        // Use Mongoose's deleteMany to delete all products
+        
         const result = await Product.deleteMany({});
         
-        // Check if any products were deleted
+        
         if (result.deletedCount === 0) {
             return res.status(404).json({ message: 'No products found to delete.' });
         }
